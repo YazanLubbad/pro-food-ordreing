@@ -1,12 +1,28 @@
-version: '3.8'
+version: "3.9"
 services:
   menu-service:
     build: ./menu-service
+    container_name: menu-service
     ports:
-      - "8081:8080"
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - app-net
+
   order-service:
     build: ./order-service
-    environment:
-      - MENU_SERVICE_URL=http://menu-service:8080/api/menu
+    container_name: order-service
     ports:
-      - "8082:8080"
+      - "8082:8082"
+    environment:
+      - MENU_SERVICE_URL=http://menu-service:8081
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - menu-service
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
