@@ -2,7 +2,7 @@
 .gradle/
 build/
 
-# Eclipse/IntelliJ
+# Eclipse / IntelliJ
 .idea/
 *.iml
 *.class
@@ -10,3 +10,9 @@ build/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Ignore everything outside the repo
+/* 
+!menu-service/
+!order-service/
+!.gitignore
