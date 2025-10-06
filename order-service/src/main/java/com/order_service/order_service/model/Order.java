@@ -22,6 +22,8 @@ public class Order {
     private String customerName ;
     private Long item_id;
     private Integer guantity ;
+    private String address;
+    
     
     
 }

@@ -32,7 +32,7 @@ public class OrderService {
    public ResponseTemplateVO getOrderWithItemByOrderId(Long orderId) {
         Order order = this.getOrderById(orderId);
         menuitem item = this.restTemplate
-                .getForObject("http://ITEM-SERVICE:9001/menu/" + 
+                .getForObject("http://menu-service:9001/menu/" + 
                         order.getItem_id(), menuitem.class);
 
         ResponseTemplateVO vo = new ResponseTemplateVO();
